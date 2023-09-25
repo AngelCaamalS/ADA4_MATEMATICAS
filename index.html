@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Grafico de Distribucion de Ventas de Libretas</title>
+  <!-- Agrega aquí la referencia a la biblioteca Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div style="width: 80%; margin: 0 auto;">
+    <canvas id="myChart"></canvas>
+  </div>
+
+  <!-- Agrega un botón para ir a otra página -->
+  <div style="text-align: center; margin-top: 20px;">
+    <button onclick="window.location.href='TEXTO.html'">Tipo de asimetria y apuntamiento.
+        </button>
+  </div>
+
+  <script>
+    // Datos de ventas de libretas
+    const rangos = ["4 a 9", "10 a 15", "16 a 21", "22 a 27", "28 a 33", "34 a 39"];
+    const ventasCarlos = [3, 7, 10, 8, 1, 1];
+    const ventasMariana = [4, 8, 9, 8, 1, 0];
+
+    // Configura el contexto del gráfico
+    const ctx = document.getElementById('myChart').getContext('2d');
+
+    // Crea el gráfico de barras
+    const myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: rangos,
+        datasets: [{
+          label: 'Carlos',
+          data: ventasCarlos,
+          backgroundColor: 'rgba(75, 192, 192, 0.5)', // Color de las barras de Carlos
+          borderColor: 'white',
+          borderWidth: 2
+        },
+        {
+          label: 'Mariana',
+          data: ventasMariana,
+          backgroundColor: 'rgba(255, 99, 132, 0.5)', // Color de las barras de Mariana
+          borderColor: 'rgba(255, 99, 132, 1)',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
